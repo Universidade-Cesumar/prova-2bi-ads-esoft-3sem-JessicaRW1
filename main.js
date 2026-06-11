@@ -10,5 +10,21 @@ async function buscarMateriais() {
         if (!response.ok) throw new Error("Erro ao carregar dados do servidor.");
 
         const materiais = await response.json();
+        if (listaMateriais) {
+            listaMateriais.innerHTML = "";
+        }
+
+        materiais.forEach(item => {
+            const linha = document.createElement("tr");
+            linha.innerHTML = `
+                <td>${item.nome}</td>
+                <td>${item.quantidade}</td>
+            `;
+            if (listaMateriais) {
+                listaMateriais.appendChild(linha);
+            }
+        });
+    } catch (error) {
+        console.error("Erro na requisição GET:", error);
     }
-    
+}
