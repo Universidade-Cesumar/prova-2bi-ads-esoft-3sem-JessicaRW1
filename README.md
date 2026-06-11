@@ -1,4 +1,4 @@
-# Controle de Almoxarifado - Setor Saúde
+# Controle de Almoxarifado - Setor Saúde (Sprint 1)
 
 Sistema desenvolvido para cadastro e controle de estoque de insumos médicos, criado como atividade prática da disciplina de Engenharia de Software.
 
