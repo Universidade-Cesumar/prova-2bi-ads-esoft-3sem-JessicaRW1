@@ -65,3 +65,14 @@ async function cadastrarMaterial() {
         console.error("Erro na requisição POST:", error);
     }
 }
+if (btnCadastrar) {
+    btnCadastrar.addEventListener("click", cadastrarMaterial);
+}
+window.addEventListener("DOMContentLoaded", buscarMateriais);
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        buscarMateriais,
+        cadastrarMaterial
+    };
+}
