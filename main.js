@@ -28,3 +28,40 @@ async function buscarMateriais() {
         console.error("Erro na requisição GET:", error);
     }
 }
+async function cadastrarMaterial() {
+    if (!inputNome || !inputQuantidade) return;
+
+    const nome = inputNome.value.trim();
+    const quantidade = inputQuantidade.value.trim();
+
+    if (!nome || !quantidade) {
+        alert("Por favor, preencha todos os campos antes de cadastrar.");
+        return;
+    }
+
+    const novoMaterial = {
+        nome: nome,
+        quantidade: Number(quantidade) 
+    };
+
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(novoMaterial)
+        });
+
+        if (response.ok) {
+            inputNome.value = "";
+            inputQuantidade.value = "";
+            
+            buscarMateriais();
+        } else {
+            alert("Erro ao tentar cadastrar o material no servidor.");
+        }
+    } catch (error) {
+        console.error("Erro na requisição POST:", error);
+    }
+}
