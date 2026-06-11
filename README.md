@@ -22,7 +22,6 @@ Código estruturado e exportado para execução de testes utilizando Jest.
 
 ---
 
-# Tecnologias Utilizadas
 HTML5 — Estrutura da página
 CSS3 — Layout e estilização da interface
 JavaScript ES6 — Consumo da API utilizando async/await
