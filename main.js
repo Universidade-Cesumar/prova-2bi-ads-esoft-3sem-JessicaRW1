@@ -85,6 +85,7 @@ window.addEventListener("DOMContentLoaded", buscarMateriais);
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         buscarMateriais,
-        cadastrarMaterial
+        cadastrarMaterial,
+        validarRetirada
     };
 }
