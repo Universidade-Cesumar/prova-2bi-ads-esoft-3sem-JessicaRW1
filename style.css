@@ -117,3 +117,15 @@ th {
 .btn-excluir:hover {
     background-color: #c0392b;
 }
+.input-retirada-tabela {
+    width: 70px;
+    padding: 5px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.acoes-container {
+    display: flex;
+    align-items: center;
+}
