@@ -40,6 +40,66 @@ async function buscarMateriais() {
         console.error("Erro na requisição GET:", error);
     }
 }
+
+// === CONFIGURAR EVENTOS DA TABELA (PUT E DELETE) ===
+function configurarEventosAcoes() {
+    const botoesBaixar = document.querySelectorAll(".btn-baixar");
+    botoesBaixar.forEach(botao => {
+        botao.onclick = async (e) => {
+            const id = e.target.getAttribute("data-id");
+            const estoqueAtual = Number(e.target.getAttribute("data-estoque"));
+            const inputRetirada = document.getElementById(`input-retirada-${id}`);
+            const quantidadeRetirada = Number(inputRetirada.value);
+
+            if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
+                alert("Operação inválida! Verifique a quantidade informada.");
+                return;
+            }
+
+            const novaQuantidade = estoqueAtual - quantidadeRetirada;
+
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ quantidade: novaQuantidade })
+                });
+
+                if (response.ok) {
+                    buscarMateriais();
+                } else {
+                    alert("Erro ao atualizar o estoque no servidor.");
+                }
+            } catch (error) {
+                console.error("Erro na requisição PUT:", error);
+            }
+        };
+    });
+
+    const botoesExcluir = document.querySelectorAll(".btn-excluir");
+    botoesExcluir.forEach(botao => {
+        botao.onclick = async (e) => {
+            const id = e.target.getAttribute("data-id");
+
+            if (!confirm("Tem certeza que deseja excluir este material?")) return;
+
+            try {
+                const response = await fetch(`${API_URL}/${id}`, {
+                    method: "DELETE"
+                });
+
+                if (response.ok) {
+                    buscarMateriais();
+                } else {
+                    alert("Erro ao excluir o material no servidor.");
+                }
+            } catch (error) {
+                console.error("Erro na requisição DELETE:", error);
+            }
+        };
+    });
+}
+
 async function cadastrarMaterial() {
     if (!inputNome || !inputQuantidade) return;
 
