@@ -25,7 +25,7 @@ async function buscarMateriais() {
                 <td>${item.quantidade}</td>
                 <td>
                     <div class="acoes-container">
-                        <input type="number" min="1" class="input-retirada-tabela" id="input-retirada-${item.id}" placeholder="Qtd">
+                        <input type="number" min="1" class="input-retirada-tabela" id="input-retirada" data-id="${item.id}" placeholder="Qtd">
                         <button class="btn-baixar" data-id="${item.id}" data-estoque="${item.quantidade}">Baixar</button>
                         <button class="btn-excluir" data-id="${item.id}">Excluir</button>
                     </div>
@@ -41,14 +41,14 @@ async function buscarMateriais() {
     }
 }
 
-// === CONFIGURAR EVENTOS DA TABELA (PUT E DELETE) ===
 function configurarEventosAcoes() {
     const botoesBaixar = document.querySelectorAll(".btn-baixar");
     botoesBaixar.forEach(botao => {
         botao.onclick = async (e) => {
             const id = e.target.getAttribute("data-id");
             const estoqueAtual = Number(e.target.getAttribute("data-estoque"));
-            const inputRetirada = document.getElementById(`input-retirada-${id}`);
+            const container = e.target.parentElement;
+            const inputRetirada = container.querySelector(`input[data-id="${id}"]`);
             const quantidadeRetirada = Number(inputRetirada.value);
 
             if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
@@ -75,7 +75,7 @@ function configurarEventosAcoes() {
             }
         };
     });
-
+    
     const botoesExcluir = document.querySelectorAll(".btn-excluir");
     botoesExcluir.forEach(botao => {
         botao.onclick = async (e) => {
