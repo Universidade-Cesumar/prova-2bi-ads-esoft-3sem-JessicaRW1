@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #a3bbe0;
+    background-color: #ddd;
     color: #333;
     padding: 30px;
 }
@@ -56,7 +56,7 @@ button {
     background-color: #23c246;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 8px;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 4px;
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #27ae60;
+    background-color: #23c246;
 }
 table {
     width: 100%;
@@ -76,7 +76,7 @@ table {
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #dddddd;
 }
 
 th {
