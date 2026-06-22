@@ -15,7 +15,6 @@ async function buscarMateriais() {
         if (!response.ok) throw new Error("Erro ao carregar dados do servidor.");
 
         const materiais = await response.json();
-        const totalItens = document.getElementById("total-itens");
         if (totalItens) {
             totalItens.textContent = materiais.length;
         }
