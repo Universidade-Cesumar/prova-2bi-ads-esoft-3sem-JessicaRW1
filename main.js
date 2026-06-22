@@ -162,3 +162,22 @@ if (typeof module !== 'undefined' && module.exports) {
         validarRetirada
     };
 }
+
+const inputBusca = document.getElementById("input-busca");
+
+if (inputBusca) {
+    inputBusca.addEventListener("input", () => {
+        const termoBusca = inputBusca.value.toLowerCase();
+        const linhasTabela = listaMateriais.querySelectorAll("tr");
+
+        linhasTabela.forEach(linha => {
+            const nomeMaterial = linha.querySelector("td").textContent.toLowerCase();
+            
+            if (nomeMaterial.includes(termoBusca)) {
+                linha.style.display = ""; 
+            } else {
+                linha.style.display = "none"; 
+            }
+        });
+    });
+}
