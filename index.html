@@ -25,6 +25,23 @@
         </div>
 <div class="card">
             <h2>Inventário Atual</h2>
+            <div class="dashboard-grupo" style="display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; gap: 10px;">
+        <input type="text" id="input-busca" placeholder="Pesquisar material..." style="flex: 1; padding: 8px;">
+        <span style="font-weight: bold; white-space: nowrap;">Total: <span id="total-itens">0</span></span>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="lista-materiais">
+        </tbody>
+    </table>
+</div>
             <table>
                 <thead>
         <tr>
