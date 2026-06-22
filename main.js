@@ -36,7 +36,7 @@ async function buscarMateriais() {
                 <td>${item.quantidade}</td>
                 <td>
                     <div class="acoes-container">
-                        <input type="number" min="1" class="input-retirada-tabela" id="input-retirada" data-id="${item.id}" placeholder="Qtd">
+                        <input type="number" min="1" class="input-retirada-tabela" data-id="${item.id}" placeholder="Qtd">
                         <button class="btn-baixar" data-id="${item.id}" data-estoque="${item.quantidade}">Baixar</button>
                         <button class="btn-excluir" data-id="${item.id}">Excluir</button>
                     </div>
