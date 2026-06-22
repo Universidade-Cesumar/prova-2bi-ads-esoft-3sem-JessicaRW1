@@ -60,7 +60,7 @@ function configurarEventosAcoes() {
             const id = e.target.getAttribute("data-id");
             const estoqueAtual = Number(e.target.getAttribute("data-estoque"));
             const container = e.target.parentElement;
-            const inputRetirada = container.querySelector(`input[data-id="${id}"]`);
+            const inputRetirada = container.querySelector(".input-retirada-tabela");
             const quantidadeRetirada = Number(inputRetirada.value);
 
             if (!validarRetirada(estoqueAtual, quantidadeRetirada)) {
