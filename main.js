@@ -8,18 +8,29 @@ const inputNome = document.getElementById("input-nome");
 const inputQuantidade = document.getElementById("input-quantidade");
 const btnCadastrar = document.getElementById("btn-cadastrar");
 const listaMateriais = document.getElementById("lista-materiais");
+const totalItens = document.getElementById("total-itens");
 async function buscarMateriais() {
     try {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error("Erro ao carregar dados do servidor.");
 
         const materiais = await response.json();
+        const totalItens = document.getElementById("total-itens");
+        if (totalItens) {
+            totalItens.textContent = materiais.length;
+        }
+
         if (listaMateriais) {
             listaMateriais.innerHTML = "";
         }
 
         materiais.forEach(item => {
             const linha = document.createElement("tr");
+            
+            if (Number(item.quantidade) < 10) {
+                linha.classList.add("estoque-critico");
+            }
+
             linha.innerHTML = `
                 <td>${item.nome}</td>
                 <td>${item.quantidade}</td>
@@ -31,20 +42,22 @@ async function buscarMateriais() {
                     </div>
                 </td>
             `;
+            
             if (listaMateriais) {
                 listaMateriais.appendChild(linha);
             }
-        });
-        configurarEventosAcoes();
-    } catch (error) {
-        console.error("Erro na requisição GET:", error);
-    }
-}
+        }); 
 
+        configurarEventosAcoes(); 
+
+    } catch (error) {
+        console.error("Erro ao buscar materiais:", error);
+    }
+} 
 function configurarEventosAcoes() {
     const botoesBaixar = document.querySelectorAll(".btn-baixar");
-    botoesBaixar.forEach(botao => {
-        botao.onclick = async (e) => {
+            botoesBaixar.forEach(botao => {
+            botao.onclick = async (e) => {
             const id = e.target.getAttribute("data-id");
             const estoqueAtual = Number(e.target.getAttribute("data-estoque"));
             const container = e.target.parentElement;
