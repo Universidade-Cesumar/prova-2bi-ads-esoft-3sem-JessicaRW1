@@ -156,12 +156,13 @@ window.addEventListener("DOMContentLoaded", buscarMateriais);
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
+        validarRetirada,
         buscarMateriais,
-        cadastrarMaterial,
-        validarRetirada
+        cadastrarMaterial
     };
 }
 
+window.validarRetirada = validarRetirada;
 const inputBusca = document.getElementById("input-busca");
 
 if (inputBusca) {
