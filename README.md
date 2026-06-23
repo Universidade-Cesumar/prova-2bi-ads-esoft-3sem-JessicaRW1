@@ -33,7 +33,7 @@ Evolução do sistema para controle de insumos médicos, focada em movimentaçã
 
 ---
 
-# Funcionalidades da Sprint 2
+# Funcionalidades
 
 ✅ Validação de Retirada
 Lógica que impede baixar produtos com valores negativos ou maiores do que o estoque tem disponível.
@@ -49,7 +49,23 @@ Uso obrigatório dos identificadores exatos exigidos pelo professor para os test
 
 ---
 
-# Novas Tecnologias Aplicadas
+# Controle de Almoxarifado - Setor Saúde (Sprint 3)
 
-- **Métodos HTTP (PUT e DELETE)** — Usados para atualizar e deletar dados na API.
-- **Manipulação do DOM** — Uso de seletores para capturar o input exato da linha clicada.
+Evolução final do sistema, focada na criação de um dashboard com totalizadores, filtros de busca em tempo real e alertas visuais de estoque crítico para os insumos médicos.
+
+---
+
+# Funcionalidades
+
+✅ Filtro de Busca em Tempo Real
+Barra de pesquisa que filtra os insumos pelo nome instantaneamente conforme o usuário digita, ocultando as linhas que não coincidem.
+
+✅ Indicador de Estoque Crítico
+Identificação visual automática (linhas destacadas com a classe `.estoque-critico`) para qualquer material médico que possua menos de 10 unidades em saldo.
+
+✅ Totalizador Dinâmico (Dashboard)
+Painel superior que exibe a quantidade total de tipos de itens cadastrados e monitorados no almoxarifado.
+
+---
+
+O sistema consolida-se como uma solução robusta e eficiente para o monitoramento de insumos, integrando persistência em API, validações rigorosas de negócio e uma interface dinâmica com alertas visuais para otimizar a gestão do Setor de Saúde.
