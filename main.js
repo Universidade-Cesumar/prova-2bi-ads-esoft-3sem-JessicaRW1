@@ -1,7 +1,10 @@
 const API_URL = "https://6a29d3bcf59cb8f65f1da5b8.mockapi.io/materiais";
 function validarRetirada(estoqueAtual, quantidadeRetirada) {
-    if (quantidadeRetirada <= 0) return false;
-    if (quantidadeRetirada > estoqueAtual) return false;
+    const estoque = Number(estoqueAtual);
+    const retirada = Number(quantidadeRetirada);
+
+    if (retirada <= 0) return false;
+    if (retirada > estoque) return false;
     return true;
 }
 const inputNome = document.getElementById("input-nome");
