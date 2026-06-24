@@ -9,10 +9,13 @@ O projeto tem como objetivo facilitar o gerenciamento de materiais, permitindo o
 #  Funcionalidades
 ✅ Cadastro (POST)
 Salva o nome e a quantidade do material no servidor.
+
 ✅ Listagem (GET)
 Busca os dados da API e atualiza automaticamente a tabela ao carregar a página.
+
 ✅ Persistência de Dados
 Integração com o MockAPI para simular um banco de dados e garantir o armazenamento das informações.
+
 ✅ Testes
 Código estruturado e exportado para execução de testes utilizando Jest.
 
@@ -30,10 +33,13 @@ Evolução do sistema para controle de insumos médicos, focada em movimentaçã
 # Funcionalidades
 ✅ Validação de Retirada
 Lógica que impede baixar produtos com valores negativos ou maiores do que o estoque tem disponível.
+
 ✅ Baixa de Estoque (PUT)
 Diminui a quantidade do material e atualiza a informação direto no servidor do MockAPI.
+
 ✅ Exclusão de Materiais (DELETE)
 Botão que apaga o item cadastrado da tabela e do servidor.
+
 ✅ Contrato Técnico
 Uso obrigatório dos identificadores exatos exigidos pelo professor para os testes automatizados.
 
@@ -48,8 +54,10 @@ Evolução final do sistema, focada na criação de um dashboard com totalizador
 # Funcionalidades
 ✅ Filtro de Busca em Tempo Real
 Barra de pesquisa que filtra os insumos pelo nome instantaneamente conforme o usuário digita, ocultando as linhas que não coincidem.
+
 ✅ Indicador de Estoque Crítico
 Identificação visual automática (linhas destacadas com a classe `.estoque-critico`) para qualquer material médico que possua menos de 10 unidades em saldo.
+
 ✅ Totalizador Dinâmico (Dashboard)
 Painel superior que exibe a quantidade total de tipos de itens cadastrados e monitorados no almoxarifado.
 
